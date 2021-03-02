@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 import br.com.serviceapi.domain.model.Cliente;
 
 @Repository
-public interface ClienteRepositoty extends JpaRepository<Cliente, Long>{
+public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
 	List<Cliente> findByNome(String nome);
 	List<Cliente> findByNomeContaining(String nome);
+	Cliente findByEmail(String email);
 }
