@@ -1,12 +1,19 @@
 package br.com.serviceapi.handler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+//a documentação "@JsonInclude" pode manipular informações de campos do body 
+//exemplo: Include.NON_NULL não vai exiber compos null no boby
+
+@JsonInclude(Include.NON_NULL)
 public class ExceptionAtributos {
 
 	private Integer status;
-	private LocalDateTime dataHora;
+	private OffsetDateTime dataHora;
 	private String titulo;
 	private List<Campo> campos;
 	
@@ -44,10 +51,10 @@ public class ExceptionAtributos {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public LocalDateTime getDataHora() {
+	public OffsetDateTime getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(LocalDateTime dataHora) {
+	public void setDataHora(OffsetDateTime dataHora) {
 		this.dataHora = dataHora;
 	}
 	public String getTitulo() {
